@@ -1,0 +1,10 @@
+SSH Tunnel:
+ssh -o ServerAliveInterval=60 -L 9092:localhost:9092 alodh@cs594.cs.uic.edu -NTf
+
+
+#Prodecer
+kcat -P -b localhost:9092 -t topic-apoorv-3
+
+
+#Consumer
+kcat -C -b localhost:9092 -t topic-apoorv-3 -o beginning -q
